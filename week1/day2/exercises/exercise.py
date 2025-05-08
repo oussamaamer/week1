@@ -99,4 +99,18 @@
 
 
 
-#######################5
+# #######################5
+# import random
+# while True:
+#     num=int(input("donner un nombre entre 1 et 100 : "))
+#     if num>=1 and num<100:
+#         break
+
+# ran=random.randint(1,100)
+# if num==ran:
+#     print("bravo ")
+# else:
+#     print(f"your number {num} random number {ran}")
+
+
+# #######################5
