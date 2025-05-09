@@ -113,4 +113,15 @@
 #     print(f"your number {num} random number {ran}")
 
 
-# #######################5
+# # #######################6
+# def make_shirt(size,text="I love Python"):
+#     print(f"size= {size} text= {text}")
+
+# make_shirt("S")
+# make_shirt(size="L")
+# make_shirt(size="M")
+# make_shirt(size="R",text="i love lwalida")
+
+
+# # #######################7
+
