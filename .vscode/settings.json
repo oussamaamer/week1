@@ -4,5 +4,26 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "test",
+      "database": "postgres",
+      "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "public",
+      "database": "public",
+      "username": "postgres"
+    }
+  ]
 }
