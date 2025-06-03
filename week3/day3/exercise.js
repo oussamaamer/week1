@@ -179,3 +179,42 @@
 
 // console.log("Premier lien :", firstLi.textContent);
 // console.log("Dernier lien :", lastLi.textContent);
+
+///////////////////////7;
+
+const allBooks = [
+  {
+    title: "Harry Potter and the Philosopher's Stone",
+    author: "J.K. Rowling",
+    image: "#",
+    alreadyRead: true,
+  },
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    image: "#",
+    alreadyRead: false,
+  },
+];
+
+const section = document.querySelector(".listBooks");
+
+allBooks.forEach((book) => {
+  const bookDiv = document.createElement("div");
+
+  const bookInfo = document.createElement("p");
+  bookInfo.textContent = `${book.title} written by ${book.author}`;
+
+  if (book.alreadyRead) {
+    bookInfo.style.color = "red";
+  }
+
+  const img = document.createElement("img");
+  img.src = book.image;
+  img.style.width = "100px";
+
+  bookDiv.appendChild(bookInfo);
+  bookDiv.appendChild(img);
+
+  section.appendChild(bookDiv);
+});
