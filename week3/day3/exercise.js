@@ -106,56 +106,76 @@
 // }
 // totalVacationCost();
 
-/////////////////////////////////ex5:
-const containerDiv = document.getElementById("container");
-console.log(containerDiv.innerHTML);
+// /////////////////////////////////ex5:
+// const containerDiv = document.getElementById("container");
+// console.log(containerDiv.innerHTML);
 
-const allUl = document.querySelectorAll(".list");
-allUl[0].children[1].textContent = "Richard";
+// const allUl = document.querySelectorAll(".list");
+// allUl[0].children[1].textContent = "Richard";
 
-allUl[1].removeChild(allUl[1].children[1]);
+// allUl[1].removeChild(allUl[1].children[1]);
 
-allUl.forEach((ul) => {
-  ul.children[0].textContent = "Rafik";
-});
+// allUl.forEach((ul) => {
+//   ul.children[0].textContent = "Rafik";
+// });
 
-allUl.forEach((ul) => {
-  ul.classList.add("student_list");
-});
+// allUl.forEach((ul) => {
+//   ul.classList.add("student_list");
+// });
 
-allUl[0].classList.add("university", "attendance");
+// allUl[0].classList.add("university", "attendance");
 
-containerDiv.style.backgroundColor = "lightblue";
-containerDiv.style.padding = "10px";
+// containerDiv.style.backgroundColor = "lightblue";
+// containerDiv.style.padding = "10px";
 
-const allLi = document.querySelectorAll("li");
-allLi.forEach((li) => {
-  if (li.textContent === "Dan") {
-    li.style.display = "none";
-  }
-});
+// const allLi = document.querySelectorAll("li");
+// allLi.forEach((li) => {
+//   if (li.textContent === "Dan") {
+//     li.style.display = "none";
+//   }
+// });
 
-allLi.forEach((li) => {
-  if (li.textContent === "Richard") {
-    li.style.border = "1px solid black";
-  }
-});
+// allLi.forEach((li) => {
+//   if (li.textContent === "Richard") {
+//     li.style.border = "1px solid black";
+//   }
+// });
 
-document.body.style.fontSize = "18px";
+// document.body.style.fontSize = "18px";
 
-// Bonus
+// // Bonus
 
-const bgColor = window.getComputedStyle(containerDiv).backgroundColor;
+// const bgColor = window.getComputedStyle(containerDiv).backgroundColor;
 
-if (bgColor === "rgb(173, 216, 230)") {
-  const userLis = document.querySelectorAll(".student_list li");
+// if (bgColor === "rgb(173, 216, 230)") {
+//   const userLis = document.querySelectorAll(".student_list li");
 
-  const users = [];
-  userLis.forEach((li) => {
-    if (li.style.display !== "none") {
-      users.push(li.textContent);
-    }
-  });
+//   const users = [];
+//   userLis.forEach((li) => {
+//     if (li.style.display !== "none") {
+//       users.push(li.textContent);
+//     }
+//   });
 
-  alert(`Hello ${users.join(" and ")}`);
-}
+//   alert(`Hello ${users.join(" and ")}`);
+// }
+
+/////////////////////////////6;
+
+// const divNav = document.getElementById("navBar");
+// divNav.setAttribute("id", "socialNetworkNavigation");
+
+// const newLi = document.createElement("li");
+
+// const logoutText = document.createTextNode("Logout");
+
+// newLi.appendChild(logoutText);
+
+// const ul = divNav.querySelector("ul");
+// ul.appendChild(newLi);
+
+// const firstLi = ul.firstElementChild;
+// const lastLi = ul.lastElementChild;
+
+// console.log("Premier lien :", firstLi.textContent);
+// console.log("Dernier lien :", lastLi.textContent);
