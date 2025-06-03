@@ -16,14 +16,23 @@
     </style>
   </head>
   <body>
-    <p>Input radius value and get the volume of a sphere.</p>
-    <form id="MyForm">
-      <label for="radius">Radius</label
-      ><input type="text" name="radius" id="radius" required />
-      <label for="volume">Volume</label
-      ><input type="text" name="volume" id="volume" />
-      <input type="submit" value="Calculate" id="submit" />
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label><input type="text" id="noun" /><br />
+      <label for="adjective">Adjective:</label
+      ><input type="text" id="adjective" /><br />
+      <label for="person">Someone's Name:</label
+      ><input type="text" id="person" /><br />
+      <label for="verb">Verb:</label><input type="text" id="verb" /><br />
+      <label for="place">A place:</label><input type="text" id="place" /><br />
+      <button id="lib-button">Lib it!</button>
     </form>
-    <script src="exercises.js"></script>
+
+    <p>
+      Generated story:
+      <span id="story"></span>
+    </p>
+    <script src="challenge.js"></script>
   </body>
 </html>
