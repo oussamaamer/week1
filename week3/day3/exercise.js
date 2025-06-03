@@ -105,3 +105,57 @@
 //   );
 // }
 // totalVacationCost();
+
+/////////////////////////////////ex5:
+const containerDiv = document.getElementById("container");
+console.log(containerDiv.innerHTML);
+
+const allUl = document.querySelectorAll(".list");
+allUl[0].children[1].textContent = "Richard";
+
+allUl[1].removeChild(allUl[1].children[1]);
+
+allUl.forEach((ul) => {
+  ul.children[0].textContent = "Rafik";
+});
+
+allUl.forEach((ul) => {
+  ul.classList.add("student_list");
+});
+
+allUl[0].classList.add("university", "attendance");
+
+containerDiv.style.backgroundColor = "lightblue";
+containerDiv.style.padding = "10px";
+
+const allLi = document.querySelectorAll("li");
+allLi.forEach((li) => {
+  if (li.textContent === "Dan") {
+    li.style.display = "none";
+  }
+});
+
+allLi.forEach((li) => {
+  if (li.textContent === "Richard") {
+    li.style.border = "1px solid black";
+  }
+});
+
+document.body.style.fontSize = "18px";
+
+// Bonus
+
+const bgColor = window.getComputedStyle(containerDiv).backgroundColor;
+
+if (bgColor === "rgb(173, 216, 230)") {
+  const userLis = document.querySelectorAll(".student_list li");
+
+  const users = [];
+  userLis.forEach((li) => {
+    if (li.style.display !== "none") {
+      users.push(li.textContent);
+    }
+  });
+
+  alert(`Hello ${users.join(" and ")}`);
+}
