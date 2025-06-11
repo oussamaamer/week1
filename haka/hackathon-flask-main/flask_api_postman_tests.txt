@@ -1,0 +1,117 @@
+📫 API Testing with Postman
+
+=====================
+🔓 Unprotected Routes
+=====================
+
+1. 🧍 Register New User
+-------------------------
+POST /register
+
+Body (raw JSON):
+{
+  "username": "admin",
+  "password": "1234"
+}
+
+Response:
+{
+  "message": "User created"
+}
+
+2. 🔐 Login and Get JWT Token
+-------------------------------
+POST /login
+
+Body (raw JSON):
+{
+  "username": "admin",
+  "password": "1234"
+}
+
+Response:
+{
+  "access_token": "your.jwt.token"
+}
+
+3. 📋 Get All Menu Items
+-------------------------
+GET /menu
+
+Response:
+[
+  {
+    "name": "Pizza",
+    "price": 12.99
+  }
+]
+
+4. 🔍 Get a Specific Menu Item
+-------------------------------
+GET /menu/Pizza
+
+Response (if found):
+{
+  "name": "Pizza",
+  "price": 12.99
+}
+
+Response (if not found):
+{
+  "error": "Item not found"
+}
+
+===================
+🔒 Protected Routes
+===================
+
+⚠️ These routes require a JWT token in the Authorization header:
+Authorization: Bearer <your.jwt.token>
+
+1. ➕ Add Menu Item
+--------------------
+POST /menu
+
+Headers:
+Authorization: Bearer <your.jwt.token>
+
+Body (raw JSON):
+{
+  "name": "Pizza",
+  "price": 12.99
+}
+
+Response:
+{
+  "message": "Item added"
+}
+
+2. ✏️ Update a Menu Item
+--------------------------
+PUT /menu/Pizza
+
+Headers:
+Authorization: Bearer <your.jwt.token>
+
+Body (raw JSON):
+{
+  "new_name": "Burger",
+  "new_price": 10.5
+}
+
+Response:
+{
+  "message": "Item updated"
+}
+
+3. 🗑️ Delete a Menu Item
+--------------------------
+DELETE /menu/Burger
+
+Headers:
+Authorization: Bearer <your.jwt.token>
+
+Response:
+{
+  "message": "Item deleted"
+}
