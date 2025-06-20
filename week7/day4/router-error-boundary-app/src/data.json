@@ -1,0 +1,23 @@
+{
+  "SocialMedias": [
+    "https//github.com/",
+    "https//linkdin.com/",
+    "https//facebook.com/"
+  ],
+  "Skills": {
+    "programiing languge": [".java", ".c#", ".python"],
+    "WEB BASED APPLICATION DEVLOPMENT": [".javascript", ".typescripte", ".html5", ".css", ".reacte"]
+  },
+  "Experiences": [
+    {
+      "company": "Company A",
+      "role": "Frontend Developer",
+      "years": "2019-2021"
+    },
+    {
+      "company": "Company B",
+      "role": "Backend Developer",
+      "years": "2021-2023"
+    }
+  ]
+}
