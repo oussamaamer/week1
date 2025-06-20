@@ -66,7 +66,6 @@
         const submitBtn = document.getElementById('submitBtn');
         const messageDiv = document.getElementById('message');
 
-        // Enable/disable submit button based on input validity
         function checkFormValidity() {
             let allValid = true;
             inputs.forEach(input => {
@@ -81,7 +80,6 @@
             input.addEventListener('input', checkFormValidity);
         });
 
-        // Handle form submission
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             

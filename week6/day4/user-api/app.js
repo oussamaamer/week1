@@ -7,14 +7,11 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(express.json());
 app.use(express.static('public'));
 
-// Path to users JSON file
 const USERS_FILE = path.join(__dirname, 'data', 'users.json');
 
-// Initialize users file if it doesn't exist
 async function initializeUsersFile() {
     try {
         await fs.access(USERS_FILE);
@@ -23,7 +20,6 @@ async function initializeUsersFile() {
     }
 }
 
-// Read users from file
 async function readUsers() {
     try {
         const data = await fs.readFile(USERS_FILE, 'utf8');
@@ -34,7 +30,6 @@ async function readUsers() {
     }
 }
 
-// Write users to file
 async function writeUsers(users) {
     try {
         await fs.writeFile(USERS_FILE, JSON.stringify(users, null, 2));
@@ -44,10 +39,8 @@ async function writeUsers(users) {
     }
 }
 
-// Routes
 const router = express.Router();
 
-// Register a new user
 router.post('/register', async (req, res) => {
     try {
         const { name, lastName, email, username, password } = req.body;
@@ -58,7 +51,6 @@ router.post('/register', async (req, res) => {
 
         const users = await readUsers();
         
-        // Check if username or email already exists
         const usernameExists = users.some(user => user.username === username);
         const emailExists = users.some(user => user.email === email);
         
@@ -70,10 +62,8 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ error: 'email already exists' });
         }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
         
-        // Create new user
         const newUser = {
             id: uuidv4(),
             name,
@@ -102,7 +92,6 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login user
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -139,11 +128,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Get all users
 router.get('/users', async (req, res) => {
     try {
         const users = await readUsers();
-        // Don't return passwords
         const sanitizedUsers = users.map(user => {
             const { password, ...userWithoutPassword } = user;
             return userWithoutPassword;
@@ -155,7 +142,6 @@ router.get('/users', async (req, res) => {
     }
 });
 
-// Get specific user by ID
 router.get('/users/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -166,7 +152,6 @@ router.get('/users/:id', async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
         
-        // Don't return password
         const { password, ...userWithoutPassword } = user;
         res.json(userWithoutPassword);
     } catch (error) {
@@ -175,7 +160,6 @@ router.get('/users/:id', async (req, res) => {
     }
 });
 
-// Update user by ID
 router.put('/users/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -192,7 +176,6 @@ router.put('/users/:id', async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
         
-        // Check if new username or email already exists
         if (updates.username) {
             const usernameExists = users.some(
                 (user, index) => index !== userIndex && user.username === updates.username
@@ -211,11 +194,9 @@ router.put('/users/:id', async (req, res) => {
             }
         }
         
-        // Update user
         users[userIndex] = { ...users[userIndex], ...updates };
         await writeUsers(users);
         
-        // Don't return password
         const { password, ...updatedUser } = users[userIndex];
         res.json(updatedUser);
     } catch (error) {
@@ -224,10 +205,8 @@ router.put('/users/:id', async (req, res) => {
     }
 });
 
-// Mount the router
 app.use('/', router);
 
-// Start the server
 async function startServer() {
     await initializeUsersFile();
     app.listen(PORT, () => {
