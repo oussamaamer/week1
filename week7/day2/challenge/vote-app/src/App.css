@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+.vote-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  width: 300px;
+  background-color: #ffe6b3;
+  border: 1px solid #999;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.vote-card button {
+  color: green;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
