@@ -1,3 +1,4 @@
+// src/AddTask.js
 import React, { useState, useContext } from "react";
 import { TaskContext } from "./TaskContext";
 
@@ -7,17 +8,16 @@ const AddTask = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() !== "") {
-      dispatch({ type: "ADD_TASK", payload: text });
-      setText("");
-    }
+    if (text.trim() === "") return;
+    dispatch({ type: "ADD_TASK", payload: text });
+    setText("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Nouvelle tâche..."
+        placeholder="Nouvelle tâche"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

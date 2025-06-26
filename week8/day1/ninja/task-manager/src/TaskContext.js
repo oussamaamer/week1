@@ -1,11 +1,14 @@
 import React, { createContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+
+
 export const TaskContext = createContext();
 
 const initialState = [];
 
 function taskReducer(state, action) {
+  
   switch (action.type) {
     case "ADD_TASK":
       return [...state, { id: uuidv4(), text: action.payload, completed: false }];
@@ -21,10 +24,10 @@ function taskReducer(state, action) {
 }
 
 export const TaskProvider = ({ children }) => {
-  const [tasks, dispatch] = useReducer(taskReducer, initialState);
+  const [state, dispatch] = useReducer(taskReducer, initialState);
 
   return (
-    <TaskContext.Provider value={{ tasks, dispatch }}>
+    <TaskContext.Provider value={{ state, dispatch }}>
       {children}
     </TaskContext.Provider>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
+import { TaskContext } from "./TaskContext";
+
 
 const App = () => {
   return (
@@ -8,6 +10,7 @@ const App = () => {
       <h1>📝 Task Manager</h1>
       <AddTask />
       <TaskList />
+      <TaskContext />
     </div>
   );
 };
